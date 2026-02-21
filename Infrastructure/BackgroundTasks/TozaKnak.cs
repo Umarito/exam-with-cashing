@@ -10,8 +10,10 @@ public class CleanupWorker(IServiceProvider serviceProvider) : BackgroundService
     {
         while (!ct.IsCancellationRequested)
         {
+            //mardakvori fakat inamijawa
             using (var s = _service.CreateScope())
             {
+                //kati inami strokaw ay chat gpt prsidm davomwa ba akli xdm kadmm!!
                 var _context = s.ServiceProvider.GetRequiredService<ApplicationDBContext>();
                 var a = DateTime.UtcNow.AddMinutes(-2);
                 var CreatedAtWith2Minutes = _context.Products.Where(p => p.CreatedAt < a).ToList();
